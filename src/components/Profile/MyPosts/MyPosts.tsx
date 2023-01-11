@@ -11,7 +11,6 @@ const Post1: PostType = {
 }
 
 const MyPosts = () => {
-    debugger
     return (
         <div className={s.item}>My posts
             <textarea>Add post</textarea>
