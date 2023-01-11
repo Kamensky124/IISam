@@ -2,13 +2,20 @@
 
 .nav {
     grid-area: n;
-    background-color: orange;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
 }
 
 .item {
    color: white;
 }
 
-.item.active {
+a.active {
+    color: green;
+}
+
+.item:hover {
+    text-decoration: underline !important;
     color: red;
 }
