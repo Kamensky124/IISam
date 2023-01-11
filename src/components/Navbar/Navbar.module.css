@@ -1,0 +1,18 @@
+
+ /*+ пишем правило в css для .active {color: gold;} + там же переименовываем ".item a" просто в ".item"*/
+ /*<div className={s.item}> тоже можно заменить на просто <div>, от класснэйма тут толку не будет*/
+
+.active {color: darkred;}
+
+.nav {
+    grid-area: n;
+    background-color: orange;
+}
+
+.item {
+   color: white;
+}
+
+.item.active {
+    color: red;
+}
