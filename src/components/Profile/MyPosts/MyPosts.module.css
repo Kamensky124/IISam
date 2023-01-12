@@ -1,4 +1,6 @@
 .item {
+    display: flex;
+    flex-direction: column;
     color: blue;
 }
 

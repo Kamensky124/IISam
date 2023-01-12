@@ -1,5 +1,8 @@
 .item {
+    display: flex;
+    flex-direction: column;
     color: darkblue;
+    padding: 10px
 }
 
 .item img {

@@ -15,11 +15,10 @@ export type PostType = {
         <div className={s.item}>
             <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyIz6I9Ede062Ub0VfcTqcRetEVS_AegfutIriwvar&s"></img>
-            {props.message}
             {props.userName}
             {props.age}
-            <div><span>Like: {props.likeCount}</span></div>
-            <div><span>DisLike</span></div>
+            {props.message}
+            <span>Like: {props.likeCount}</span>
         </div>);
 }
 

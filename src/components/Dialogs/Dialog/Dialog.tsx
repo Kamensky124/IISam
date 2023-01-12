@@ -10,10 +10,11 @@ export type DialogType = {
 }
 
 const Dialog = (props: DialogType) => {
+    let path = "/Dialogs/" + props.id
 
     return (
 
-        <NavLink className={s.avaAndName} to={"/Dialogs/"+props.id}>
+        <NavLink className={s.avaAndName} to={path}>
             <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyIz6I9Ede062Ub0VfcTqcRetEVS_AegfutIriwvar&s"></img>
             {props.userName}
@@ -21,4 +22,4 @@ const Dialog = (props: DialogType) => {
     );
 }
 
-export default Dialog;
+export default Dialog

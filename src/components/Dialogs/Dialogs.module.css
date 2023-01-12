@@ -42,12 +42,25 @@
 .avaAndName.active {
     color: green;
 }
+
 .avaAndName:hover {
     text-decoration: underline !important;
     color: red;
 }
+
+.avaAndMessage {
+    display: flex;
+    flex-direction: row
+}
+
 .avaAndMessage.active {
     color: green;
+}
+
+.avaAndMessage img {
+    height: 20px;
+    width: 20px;
+    border-radius: 30px;
 }
 
 

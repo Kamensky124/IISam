@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import s from './Dialogs.module.css';
-import Dialog, {DialogType} from "./Dialog/Dialog"
+import Dialog, {DialogType} from "./Dialog/Dialog";
 import classNames from "classnames";
 import {NavLink} from "react-router-dom";
 
@@ -18,37 +18,32 @@ let DialogData = [
 //     {DialogData[0].userName}
 // </NavLink>
 
+function Сommunication(props: DialogType) {
+    return (
+        <div className={s.avaAndMessage}>
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyIz6I9Ede062Ub0VfcTqcRetEVS_AegfutIriwvar&s"></img>
+            {props.message}
+        </div>
+    );
+}
+
 const Dialogs = () => {
     return (
-
         <div className={s.dialogs_content}>
 
             <div className={s.dialogsColumnNames}>
-
-               {/*for (let i=0; i < DialogData[i].length; i++) {}*/}
                 <Dialog id={DialogData[1].id} userName={DialogData[1].userName} message={DialogData[1].message}/>
                 <Dialog id={DialogData[2].id} userName={DialogData[2].userName} message={DialogData[2].message}/>
                 <Dialog id={DialogData[3].id} userName={DialogData[3].userName} message={DialogData[3].message}/>
-
             </div>
-
             <div className={s.dialogsColumnMessages}>
-                <div className={s.avaAndMessage}>{DialogData[0].message}</div>
-                <div className={s.avaAndMessage}>{DialogData[1].message}</div>
-                <div className={s.avaAndMessage}>{DialogData[3].message}</div>
-            </div>
+                <Сommunication id={DialogData[1].id} userName={DialogData[1].userName} message="hi"/>
+                <Сommunication id={DialogData[1].id} userName={DialogData[1].userName} message="yo!"/>
 
-            {/*?как дать css класс созданной компоненте с TS*/}
-            {/*className = {classNames('s.item')}*/}
-            <div className={s.item}>
-                <Dialog
-                    id={DialogData[1].id}
-                    userName={DialogData[1].userName}
-                    message={DialogData[1].message}
-                />
             </div>
-
-        </div>)
+        </div>
+    )
 }
 
 export default Dialogs;
