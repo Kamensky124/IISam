@@ -24,5 +24,4 @@ const MyPosts = () => {
             />
         </div>)
 }
-// className={s.posts}
 export default MyPosts;
