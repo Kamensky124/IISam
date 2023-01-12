@@ -2,8 +2,16 @@
     color: darkblue;
 }
 
-.item img {
+.avaAndName img {
     height: 40px;
     width: 40px;
     border-radius: 30px;
+}
+
+.avaAndName.active {
+    color: green;
+}
+.avaAndName:hover {
+    text-decoration: underline !important;
+    color: red;
 }
