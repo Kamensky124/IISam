@@ -1,6 +1,35 @@
 import {v1} from "uuid";
 
+type MessageType = {
+    id: string,
+    message: string
+}
+type DialogType = {
+    id: string,
+    name: string
+}
+type PostType = {
+    id: string,
+    message: string,
+    likesCount: number
+}
 
+type ProfilePageType = {
+    post: Array<PostType>
+}
+
+type DialogPageType = {
+    dialogs: Array<DialogType>
+    messages: Array<MessageType>
+}
+
+type SideBarType = {}
+
+type RootStateType = {
+    profilePage: ProfilePageType,
+    dialogsPage: DialogPageType,
+    sidebar: SideBarType
+}
 
 let state = {
     profilePage: {
@@ -31,3 +60,5 @@ let state = {
     },
     sidebar: {}
 }
+
+export default state;
