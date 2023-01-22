@@ -19,11 +19,11 @@ const MyPosts = (props: myPostsPropsType) => {
 
     return (
         <div className={s.item}><h3>My posts</h3>
+
             <textarea>Add post</textarea>
+
             <button>Remove</button>
-
             {mappedPosts}
-
         </div>)
 }
 export default MyPosts;

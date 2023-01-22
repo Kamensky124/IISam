@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import s from './Dialogs.module.css';
-import Dialog from "./Dialog/Dialog";
+import DialogItem from "./Dialog/DialogItem";
 import classNames from "classnames";
 import {NavLink} from "react-router-dom";
 import {DialogPageType, DialogType, MessageType} from "../../Redux/State";
@@ -10,14 +10,12 @@ type DialogPropsType = {
 }
 
 const Dialogs = (props: DialogPropsType) => {
-
     const mappedDialogs = props.dialogsData.dialogs.map((e: DialogType) =>
-        <Dialog
+        <DialogItem
             id={e.id}
             name={e.name}
         />
     )
-
     const mappedMessages = props.dialogsData.messages.map((e: MessageType) =>
         <Сommunication
             id={e.id}

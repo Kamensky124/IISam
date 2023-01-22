@@ -3,7 +3,7 @@ import s from './Dialog.module.css'
 import {NavLink} from "react-router-dom";
 import {DialogType} from "../../../Redux/State";
 
-const Dialog = (props: DialogType) => {
+const DialogItem = (props: DialogType) => {
     let path = "/Dialogs/" + props.id
     // debugger
     console.log(props)
@@ -17,4 +17,4 @@ const Dialog = (props: DialogType) => {
     );
 }
 
-export default Dialog
+export default DialogItem
