@@ -1,6 +1,5 @@
 import React from "react";
 import s from './HeaderTop.module.css'
-import {PostType} from "../Profile/MyPosts/Post/Post";
 
 export type HeaderTopType = {
     title: string

@@ -1,43 +1,44 @@
 import {v1} from "uuid";
 
-type MessageType = {
+export type MessageType = {
     id: string,
     message: string
 }
-type DialogType = {
+
+export type DialogType = {
     id: string,
     name: string
 }
-type PostType = {
+export type PostType = {
     id: string,
     message: string,
     likesCount: number
 }
 
-type ProfilePageType = {
-    post: Array<PostType>
+export type ProfilePageType = {
+    posts: Array<PostType>
 }
 
-type DialogPageType = {
-    dialogs: Array<DialogType>
+export type DialogPageType = {
+    dialogs: Array<DialogType>,
     messages: Array<MessageType>
 }
 
-type SideBarType = {}
-
-type RootStateType = {
+export type RootStateType = {
     profilePage: ProfilePageType,
     dialogsPage: DialogPageType,
     sidebar: SideBarType
 }
 
+export type SideBarType = {}
+
 let state = {
     profilePage: {
         posts: [
-            {id: v1(), message: "Hi, how are you?", likesCount:12},
+            {id: v1(), message: 'Hi, how are you?', likesCount:12},
             {id: v1(), message: 'It\'s my first post ', likesCount:23},
-            {id: v1(), message: "Blablabla", likesCount:3},
-            {id: v1(), message: "Dada", likesCount:6},
+            {id: v1(), message: 'Blablabla', likesCount:3},
+            {id: v1(), message: 'Dada', likesCount:6},
         ]
     },
     dialogsPage: {
@@ -54,8 +55,8 @@ let state = {
             {id: v1(), message: 'Hi'},
             {id: v1(), message: 'How is your sutra'},
             {id: v1(), message: 'Yo'},
-            {id: v1(), message: 'Yo'},
-            {id: v1(), message: 'Yo'},
+            {id: v1(), message: 'Mersi'},
+            {id: v1(), message: 'Lalafa'},
         ]
     },
     sidebar: {}

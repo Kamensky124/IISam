@@ -1,24 +1,44 @@
 import React, {useState} from 'react';
 import s from './Dialogs.module.css';
-import Dialog, {DialogType} from "./Dialog/Dialog";
+import Dialog from "./Dialog/Dialog";
 import classNames from "classnames";
 import {NavLink} from "react-router-dom";
+import {DialogPageType, DialogType, MessageType} from "../../Redux/State";
 
-let DialogData = [
-    {id: 1, userName: 'Andrey', message: 'hello world'},
-    {id: 2, userName: 'Masha', message: 'I like hobbits'},
-    {id: 3, userName: 'Igor', message: 'JS is best!'},
-    {id: 4, userName: 'Olya', message: 'Try runnning'},
-    {id: 5, userName: 'Vasya', message: 'Do you like milk?'},
-    {id: 6, userName: 'Kolyan', message: 'So so'},
-    {id: 7, userName: 'Peter', message: 'I am troll'}
-]
+type DialogPropsType = {
+    dialogsData: DialogPageType
+}
 
-//     <NavLink className={`${s.avaAndName} ${s.active}`} to="/Dialogs/1">
-//     {DialogData[0].userName}
-// </NavLink>
+const Dialogs = (props: DialogPropsType) => {
 
-function Сommunication(props: DialogType) {
+    const mappedDialogs = props.dialogsData.dialogs.map((e: DialogType) =>
+        <Dialog
+            id={e.id}
+            name={e.name}
+        />
+    )
+
+    const mappedMessages = props.dialogsData.messages.map((e: MessageType) =>
+        <Сommunication
+            id={e.id}
+            message={e.message}
+        />
+    )
+
+    return (
+        <div className={s.dialogs_content}>
+
+            <div className={s.dialogsColumnNames}>
+                {mappedDialogs}
+            </div>
+            <div className={s.dialogsColumnMessages}>
+                {mappedMessages}
+            </div>
+        </div>
+    )
+}
+
+function Сommunication(props: MessageType) {
     return (
         <div className={s.avaAndMessage}>
             <img
@@ -28,22 +48,6 @@ function Сommunication(props: DialogType) {
     );
 }
 
-const Dialogs = () => {
-    return (
-        <div className={s.dialogs_content}>
 
-            <div className={s.dialogsColumnNames}>
-                <Dialog id={DialogData[1].id} userName={DialogData[1].userName} message={DialogData[1].message}/>
-                <Dialog id={DialogData[2].id} userName={DialogData[2].userName} message={DialogData[2].message}/>
-                <Dialog id={DialogData[3].id} userName={DialogData[3].userName} message={DialogData[3].message}/>
-            </div>
-            <div className={s.dialogsColumnMessages}>
-                <Сommunication id={DialogData[1].id} userName={DialogData[1].userName} message="hi"/>
-                <Сommunication id={DialogData[1].id} userName={DialogData[1].userName} message="yo!"/>
-
-            </div>
-        </div>
-    )
-}
 
 export default Dialogs;
