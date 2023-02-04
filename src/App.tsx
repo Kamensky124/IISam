@@ -5,30 +5,21 @@ import NavBar from './components/Navbar/Navbar'
 import {Route, Switch} from 'react-router-dom';
 import Dialogs from "./components/Dialogs/Dialogs";
 import Profile from "./components/Profile/Profile";
-import {addPost, MessageType, RootStateType} from "./Redux/State";
+import {addPost, changeNewPostText, RootStateType} from "./Redux/State";
 
 type AppPropsType = {
     state: RootStateType
+    addPostCallback: (postText: string) => void,
+    changeNewPostText: (newText: string) => void
 }
 
+
 const App = (props: AppPropsType) => {
-
-    // let message = state.profilePage.posts[0].message;
-    //debugger
-    // let a = props.state.dialogsPage.dialogs
-    // console.log(a)
-
-    // console.log (b)
-
     return (
-
-
-
         <div className='app-wrapper'>
             <HeaderTop/>
             <NavBar/>
             <Switch>
-
                 <Route path="/Dialogs" render={() =>
                     <Dialogs
                         dialogsData={props.state.dialogsPage}
@@ -36,13 +27,11 @@ const App = (props: AppPropsType) => {
                 <Route path="/Profile" render={() =>
                     <Profile
                         postsData={props.state.profilePage}
-                        addPostCallback={addPost}
+                        addPostCallback={props.addPostCallback}
+                        changeNewPostText={props.changeNewPostText}
                     />}/>
             </Switch>
-
-
         </div>
-
     );
 }
 
