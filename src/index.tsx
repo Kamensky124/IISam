@@ -1,5 +1,9 @@
 import React from 'react';
-import state from "./Redux/State";
-import {renderTree} from "./Render";
 
-renderTree(state);
+import {renderTree} from "./Render";
+import store from "./Redux/State";
+
+store.subscribe(renderTree)
+renderTree();
+
+// renderTree(state);

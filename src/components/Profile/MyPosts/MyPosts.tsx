@@ -2,17 +2,17 @@ import React from "react";
 import s from './MyPosts.module.css'
 import Post from "./Post/Post"
 import {MessageType, PostType} from "../../../Redux/State"
-import { text } from "stream/consumers";
+import {text} from "stream/consumers";
 
 type myPostsPropsType = {
     postsData: Array<PostType>,
-    addPostCallback: (postText: string)=>void,
+    addPostCallback: () => void,
     changeNewPostText: (newText: string) => void
 }
 
 const MyPosts = (props: myPostsPropsType) => {
 
-    let postMessageRef = React.createRef<HTMLTextAreaElement> ();
+    let postMessageRef = React.createRef<HTMLTextAreaElement>();
 
     const mappedPosts = props.postsData.map((e: PostType) =>
         <Post
@@ -25,17 +25,16 @@ const MyPosts = (props: myPostsPropsType) => {
     const addPostRef = () => {
         // alert(postMessageRef.current?.value) //если существует
         if (postMessageRef.current) {
-            props.addPostCallback(postMessageRef.current.value)
-            postMessageRef.current.value = ""
+            props.addPostCallback()
+            // postMessageRef.current.value = ""
         }
-
     }
 
     const textareaChangeHandler = () => {
 
         if (postMessageRef.current) {
             let currentText = postMessageRef.current.value;
-            props.changeNewPostText (currentText)
+            props.changeNewPostText(currentText)
 
         }
     }
