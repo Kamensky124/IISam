@@ -1,4 +1,5 @@
 import {v1} from "uuid";
+import {renderTree} from "../Render";
 
 export type MessageType = {
     id: string,
@@ -15,22 +16,34 @@ export type PostType = {
     likesCount: number
 }
 
-export type ProfilePageType = {
-    posts: Array<PostType>
-}
-
 export type DialogPageType = {
     dialogs: Array<DialogType>,
     messages: Array<MessageType>
 }
 
+export type ProfilePageType = {
+    posts: Array<PostType>,
+}
+
 export type RootStateType = {
     profilePage: ProfilePageType,
     dialogsPage: DialogPageType,
-    sidebar: SideBarType
+    sidebar: SideBarType,
 }
 
 export type SideBarType = {}
+
+// export const addPost = () => {alert('hi')}
+
+export const addPost = (postText: string) => {
+    const newPost: PostType = {
+        id: v1(),
+        message: postText,
+        likesCount: 0
+    }
+    state.profilePage.posts.push(newPost)
+    renderTree(state);
+}
 
 let state = {
     profilePage: {

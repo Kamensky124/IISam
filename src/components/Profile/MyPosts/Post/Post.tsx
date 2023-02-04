@@ -12,5 +12,4 @@ import {PostType} from "../../../../Redux/State";
             <span>Like: {props.likesCount}</span>
         </div>);
 }
-
 export default Post;
