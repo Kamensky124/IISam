@@ -43,17 +43,36 @@ export type StoreType = {
     dispatch: (action: ActionTypes) => void
 }
 
-export type AddPostActionType = {
-    type: "ADD-POST",
-    postText: string
+// варинат без TS ФИЧИ ReturnType
+// export type AddPostActionType = {
+//     type: "ADD-POST",
+//     postText: string
+// }
+// export type ChangeNewTextActionType = {
+//     type: "CHANGE-NEW-TEXT",
+//     newText: string
+// }
+
+// расширенный вариант
+// type AddPostActionType = ReturnType<typeof addPostAC>
+// type ChangeNewTextActionType = ReturnType<typeof changeNewTextAC>
+// export type ActionTypes = AddPostActionType | ChangeNewTextActionType
+
+export type ActionTypes = ReturnType<typeof addPostAC> | ReturnType<typeof changeNewTextAC>
+
+export const addPostAC = (postText: string) => {
+    return {
+        type: "ADD-POST",
+        postText: postText
+    } as const //для работы TS ФИЧИ ReturnType чтобы понял что такое ADD-POST
 }
 
-export type ChangeNewTextActionType = {
-    type: "CHANGE-NEW-TEXT",
-    newText: string
+export const changeNewTextAC = (newText: string) => {
+    return {
+        type: "CHANGE-NEW-TEXT",
+        newText: newText
+    } as const
 }
-
-export type ActionTypes = AddPostActionType | ChangeNewTextActionType
 
 const store: StoreType = {
     _state: {
