@@ -1,13 +1,14 @@
 import React from "react";
 import s from './MyPosts.module.css'
 import Post from "./Post/Post"
-import {MessageType, PostType} from "../../../Redux/State"
+import {ActionTypes, MessageType, PostType} from "../../../Redux/Store"
 import {text} from "stream/consumers";
 
 type myPostsPropsType = {
     postsData: Array<PostType>,
     addPostCallback: () => void,
-    changeNewPostText: (newText: string) => void
+    changeNewPostText: (newText: string) => void,
+    dispatch: (action: ActionTypes) => void
 }
 
 const MyPosts = (props: myPostsPropsType) => {
@@ -25,7 +26,8 @@ const MyPosts = (props: myPostsPropsType) => {
     const addPostRef = () => {
         // alert(postMessageRef.current?.value) //если существует
         if (postMessageRef.current) {
-            props.addPostCallback()
+            // props.addPostCallback()
+            props.dispatch ({ type: "ADD-POST", postText:postMessageRef.current.value})
             // postMessageRef.current.value = ""
         }
     }
